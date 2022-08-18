@@ -36,7 +36,6 @@ fn main() -> Result<(), Error> {
         .iter()
         .map(|path_buf| {
             repo.blame_file(&path_buf.as_path(), None)
-                .ok()
                 .expect(&format!("blame {:?} failed", path_buf.as_path()))
                 .iter()
                 .find(|hunk| {
